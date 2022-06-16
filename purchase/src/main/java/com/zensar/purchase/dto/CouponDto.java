@@ -1,23 +1,17 @@
-package com.zensar.purchase.entity;
+package com.zensar.purchase.dto;
 
-import javax.persistence.Entity;
-
-import javax.persistence.Id;
-
-@Entity
-public class Coupon {
-	@Id
+public class CouponDto {
 	private int couponId;
 
 	private String couponCode;
 
 	private int couponExpiry;
 
-	public Coupon() {
+	public CouponDto() {
 		super();
 	}
 
-	public Coupon(int couponId, String couponCode, int couponExpiry) {
+	public CouponDto(int couponId, String couponCode, int couponExpiry) {
 		super();
 		this.couponId = couponId;
 		this.couponCode = couponCode;
@@ -50,7 +44,9 @@ public class Coupon {
 
 	@Override
 	public String toString() {
-		return "Coupon [couponId=" + couponId + ", couponCode=" + couponCode + ", couponExpiry=" + couponExpiry + "]";
+		return "CouponDto [couponId=" + couponId + ", couponCode=" + couponCode + ", couponExpiry=" + couponExpiry
+				+ "]";
 	}
+	
 
 }
