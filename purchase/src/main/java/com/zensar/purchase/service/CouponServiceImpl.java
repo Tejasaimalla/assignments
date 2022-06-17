@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.zensar.purchase.dto.CouponDto;
@@ -35,7 +37,10 @@ public class CouponServiceImpl implements CouponService {
 		// List<Coupon> listofCoupons = couponRepository.findAll();
 		List<CouponDto> listofCouponDto = new ArrayList<CouponDto>();
 
-		Page<Coupon> findAll = couponRepository.findAll(PageRequest.of(pageNumber, pageSize));
+		// Page<Coupon> findAll = couponRepository.findAll(PageRequest.of(pageNumber,
+		// pageSize));
+		Page<Coupon> findAll = couponRepository
+				.findAll(PageRequest.of(pageNumber, pageSize, Sort.by(Direction.ASC, "couponCode")));
 
 		List<Coupon> content = findAll.getContent();
 
@@ -69,11 +74,11 @@ public class CouponServiceImpl implements CouponService {
 
 	}
 
-	public List<CouponDto> getByCouponName(String couponName) {
-		// List<Coupon> coupons = couponRepository.test(couponName);
+	public List<CouponDto> getByCouponCode(String couponCode) {
+		// List<Coupon> coupons = couponRepository.test(couponCode);
 		List<CouponDto> couponDtos = newArrayList();
 
-		List<Coupon> coupons = couponRepository.test(couponName);
+		List<Coupon> coupons = couponRepository.test(couponCode);
 
 		for (Coupon coupon : coupons)
 			couponDtos.add(modelMapper.map(coupon, CouponDto.class));
@@ -81,10 +86,10 @@ public class CouponServiceImpl implements CouponService {
 
 	}
 
-	public List<CouponDto> findByCouponCodeAndCouponExpiry(String couponName, int expiry) {
+	public List<CouponDto> findByCouponCodeAndCouponExpiry(String couponCode, int expiry) {
 		List<CouponDto> couponDtos = newArrayList();
 
-		List<Coupon> coupons = couponRepository.test1(couponName, expiry);
+		List<Coupon> coupons = couponRepository.test1(couponCode, expiry);
 
 		for (Coupon coupon : coupons)
 			couponDtos.add(modelMapper.map(coupon, CouponDto.class));
@@ -93,12 +98,6 @@ public class CouponServiceImpl implements CouponService {
 	}
 
 	private List<CouponDto> newArrayList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<CouponDto> getByCouponCode(String couponCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
