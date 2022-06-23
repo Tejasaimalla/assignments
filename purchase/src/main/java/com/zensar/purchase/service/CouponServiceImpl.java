@@ -102,6 +102,18 @@ public class CouponServiceImpl implements CouponService {
 		return null;
 	}
 
+	@Override
+	public List<CouponDto> getByCouponNameEndsWith(String suffix) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CouponDto> findByCouponNameOrderBy(String couponName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/*
 	 * public Coupon mapToEntity(CouponDto couponDto) { Coupon coupon = new
 	 * Coupon(); coupon.setCouponId(couponDto.getCouponId());

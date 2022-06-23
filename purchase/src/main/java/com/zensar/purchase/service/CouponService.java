@@ -21,4 +21,8 @@ public interface CouponService {
 
 	List<CouponDto> getByCouponCode(String couponCode);
 
+	public List<CouponDto> getByCouponNameEndsWith(String suffix);
+
+	public List<CouponDto> findByCouponNameOrderBy(String couponName);
+
 }

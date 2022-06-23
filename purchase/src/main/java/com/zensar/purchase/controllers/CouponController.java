@@ -93,4 +93,15 @@ public class CouponController {
 		return couponService.findByCouponCodeAndCouponExpiry(couponCode, expiry);
 	}
 
+	@GetMapping(value = "/coupons/namedsuffix/{suffix}")
+	public ResponseEntity<List<CouponDto>> getByCouponNameEndsWith(@PathVariable("suffix") String suffix) {
+		return new ResponseEntity<List<CouponDto>>(couponService.getByCouponNameEndsWith(suffix), HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/coupons/order/{couponName}")
+	public ResponseEntity<List<CouponDto>> findByCouponNameOrderBy(@PathVariable String couponName) {
+
+		return new ResponseEntity<List<CouponDto>>(couponService.findByCouponNameOrderBy(couponName), HttpStatus.OK);
+	}
+
 }
