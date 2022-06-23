@@ -23,4 +23,12 @@ public interface StudentService {
 	List<StudentDto> findByStudentNameAndStudentAge(String studentName, int age);
 
 
+
+	public List<StudentDto> getByStudentNameEndsWith(String suffix);
+
+
+
+	public List<StudentDto> findByStudentNameOrderBy(String studentName);
+
+
 }

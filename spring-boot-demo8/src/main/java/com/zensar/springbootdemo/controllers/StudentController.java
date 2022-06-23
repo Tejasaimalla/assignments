@@ -90,4 +90,17 @@ public class StudentController {
 		return studentService.findByStudentNameAndStudentAge(studentName, age);
 	}
 
+	@GetMapping(value = "/students/namedsuffix/{suffix}")
+	public ResponseEntity<List<StudentDto>> getByStudentNameEndsWith(@PathVariable("suffix") String suffix) {
+		return new ResponseEntity<List<StudentDto>>(studentService.getByStudentNameEndsWith(suffix), HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/students/order/{studentName}")
+	public ResponseEntity<List<StudentDto>> findByStudentNameOrderBy(@PathVariable String studentName) {
+
+		return new ResponseEntity<List<StudentDto>>(
+				studentService.findByStudentNameOrderBy(studentName),
+				HttpStatus.OK);
+	}
+
 }

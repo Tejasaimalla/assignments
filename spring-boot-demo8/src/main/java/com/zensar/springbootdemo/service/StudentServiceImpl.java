@@ -112,6 +112,18 @@ public class StudentServiceImpl implements StudentService {
 		return null;
 	}
 
+	@Override
+	public List<StudentDto> getByStudentNameEndsWith(String suffix) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StudentDto> findByStudentNameOrderBy(String studentName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/*
 	 * public StudentDto mapToDto(Student student) { StudentDto dto = new
 	 * StudentDto(); dto.setStudentId(student.getStudentId());
